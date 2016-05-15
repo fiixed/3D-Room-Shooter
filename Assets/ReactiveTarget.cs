@@ -5,6 +5,10 @@ public class ReactiveTarget : MonoBehaviour {
 
 	// Use this for initialization
 	public void ReactToHit() {
+		WanderingAI behaviour = GetComponent<WanderingAI>();
+		if (behaviour != null) {
+			behaviour.SetAlive(false);
+		}
 		StartCoroutine(Die());
 	}
 	
@@ -15,4 +19,6 @@ public class ReactiveTarget : MonoBehaviour {
 
 		Destroy(this.gameObject);
 	}
+
+
 }
